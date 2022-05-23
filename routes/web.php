@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/greet', function () {
+    return response()->json(['greeting' => 'hi there']);
+});
+
+Route::get('/whoami', function () {
+    return response()->json(
+        auth()->user()->toArray()
+    );
+})->middleware(['auth']);
