@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('/foo', function (\Illuminate\Http\Request $request) {
+
+    return response()->json($request->all());
+});
+
+Route::get('/whoami', function () {
+    return response()->json(
+        auth()->user()->toArray()
+    );
+})->middleware(['auth']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

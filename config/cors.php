@@ -17,6 +17,9 @@ return [
 
     'paths' => [
         'api/*',
+        'graphql',
+        'whoami',
+        'foo',
         'login',
         'logout',
         'register',
